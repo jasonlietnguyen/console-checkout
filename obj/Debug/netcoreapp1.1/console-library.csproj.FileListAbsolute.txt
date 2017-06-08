@@ -1,0 +1,8 @@
+/Users/Jake/source/codeworks/console-library/bin/Debug/netcoreapp1.1/console-library.deps.json
+/Users/Jake/source/codeworks/console-library/bin/Debug/netcoreapp1.1/console-library.runtimeconfig.json
+/Users/Jake/source/codeworks/console-library/bin/Debug/netcoreapp1.1/console-library.runtimeconfig.dev.json
+/Users/Jake/source/codeworks/console-library/bin/Debug/netcoreapp1.1/console-library.dll
+/Users/Jake/source/codeworks/console-library/bin/Debug/netcoreapp1.1/console-library.pdb
+/Users/Jake/source/codeworks/console-library/obj/Debug/netcoreapp1.1/console-library.AssemblyInfo.cs
+/Users/Jake/source/codeworks/console-library/obj/Debug/netcoreapp1.1/console-library.dll
+/Users/Jake/source/codeworks/console-library/obj/Debug/netcoreapp1.1/console-library.pdb
