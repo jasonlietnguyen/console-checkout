@@ -38,7 +38,7 @@ namespace console_library.Models
       return -1;
     }
 
-    public Book Checkout()
+    public void Checkout(Library otherLib)
     {
       var browsing = true;
       Book selectedBook = null;
@@ -49,7 +49,7 @@ namespace console_library.Models
         if (userChoice == "leave")
         {
           browsing = false;
-          return null;
+          return;
         }
         var i = ValidateUserChoice(userChoice);
         selectedBook = SelectBook(i);
@@ -58,7 +58,14 @@ namespace console_library.Models
           browsing = false;
         }
       }
-      return selectedBook;
+      if (selectedBook.Rentable)
+      {
+        otherLib.Books.Add(selectedBook);
+      }
+      else
+      {
+        Books.Add(selectedBook);
+      }
     }
 
     public string GetUserChoice()

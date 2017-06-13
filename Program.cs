@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading;
 using console_library.Models;
+using console_library.Models.Trash;
 
 namespace console_library
 {
@@ -10,12 +11,58 @@ namespace console_library
   {
     static void Main(string[] args)
     {
+
+      var room = new Room();
+      room.Exits.Add("north", new Room());
+      Room x = null;
+      room.Exits.TryGetValue("north", out x);
       // WHERE THE APPLICATION RUNS OR STARTS AKA (Entry Point)
 
       var bpl = new Library("BPL");
-      var jakesBooks = new Library("Jakes Books");
-      var mobyDick = new Book("Moby Dick", "Herman Melville", "BPL");
-      Book wow = new Book("War of the Worlds", "HG Wells", "BPL");
+      var jakesBooks = new Library("Jake");
+      var mobyDick = new Book("Moby Dick", "Herman Melville", "BPL", true);
+
+
+      var petStore = new List<Animal>();
+
+
+      var fido = new Dog()
+      {
+        Name = "Fido"
+      };
+
+
+      fido.Sleep("2");
+      Console.WriteLine(fido.Legs);
+      petStore.Add(fido);
+
+      var garfield = new Cat()
+      {
+        IsEvil = false,
+        Legs = 2
+      };
+      garfield.Breath();
+      petStore.Add(garfield);
+
+      var joey = new Kangaroo()
+      {
+        ChampionBoxer = true
+      };
+
+      joey.Cute = true;
+
+      petStore.Add(joey);
+
+
+      foreach (var x in petStore)
+      {
+        x.Sleep("8");
+      }
+
+
+
+
+      Book wow = new Book("War of the Worlds", "HG Wells", "BPL", true);
       bpl.Books.Add(mobyDick);
       bpl.Books.Add(wow);
       jakesBooks.Books.Add(new Book("Head First with C#", "That one dude", "Jake"));
@@ -37,11 +84,11 @@ namespace console_library
 
         if (userChoice == "1")
         {
-          var book = bpl.Checkout();
+          bpl.Checkout(jakesBooks);
         }
         if (userChoice == "2")
         {
-          var book = jakesBooks.Checkout();
+          jakesBooks.Checkout(bpl);
         }
         if (userChoice == "3")
         {
@@ -65,7 +112,8 @@ namespace console_library
           Console.BackgroundColor = ConsoleColor.Red;
           Console.ForegroundColor = ConsoleColor.White;
           var i = 0;
-          while(i < 50){
+          while (i < 50)
+          {
             Console.WriteLine(@"
                     HAHAHA 
                               HAHAHA 
